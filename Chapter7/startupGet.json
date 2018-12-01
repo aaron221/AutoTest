@@ -6,6 +6,9 @@
       "method":"get"
     },
     "response":{
+      "headers":{
+        "Content-Type":"text/html;charset=gbk"
+      },
       "text":"这是一个没有参数的get请求"
     }
 
@@ -21,9 +24,29 @@
       }
     },
     "response":{
+      "headers":{
+        "Content-Type":"text/html;charset=gbk"
+      },
       "text":"我胡汉三又回来啦！！！！"
     }
 
-  }
+  },
 
+    {
+      "description":"这是我自己写的一个带参数的接口请求",
+      "request":{
+        "uri":"/myparamrequest",
+        "method":"get",
+        "queries":{
+          "name":"aaron",
+          "sex":"boy"
+        }
+      },
+      "response":{
+        "headers":{
+          "Content-Type":"text/html;charset=bgk"
+        },
+        "text":"这是我的基本简要信息"
+      }
+    }
 ]

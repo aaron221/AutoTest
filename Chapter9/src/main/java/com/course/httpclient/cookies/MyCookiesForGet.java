@@ -24,6 +24,7 @@ public class MyCookiesForGet {
     public void beforeTest(){
         bundle = ResourceBundle.getBundle("application", Locale.CHINA);
         url = bundle.getString("test.url");
+
     }
 
     @Test
@@ -40,6 +41,13 @@ public class MyCookiesForGet {
         HttpResponse response = client.execute(get);
         result = EntityUtils.toString(response.getEntity(),"utf-8");
         System.out.println(result);
+
+
+        HttpGet get1 = new HttpGet(testUrl);
+        DefaultHttpClient client1 = new DefaultHttpClient();
+        HttpResponse response1 = client1.execute(get1);
+        result = EntityUtils.toString(response.getEntity(),"utf-8");
+
 
         //获取cookies信息
         this.store = client.getCookieStore();

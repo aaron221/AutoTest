@@ -77,11 +77,14 @@ public class MyCookiesForPost {
         param.put("name","huhansan");
         param.put("age","18");
 
+
         //设置请求头信息 设置header
         post.setHeader("content-type","application/json");
+
         //将参数信息添加到方法中
         StringEntity entity = new StringEntity(param.toString(),"utf-8");
         post.setEntity(entity);
+
         //声明一个对象来进行响应结果的存储
         String result;
         //设置cookies信息
