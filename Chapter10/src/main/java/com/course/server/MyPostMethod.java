@@ -52,9 +52,7 @@ public class MyPostMethod {
                 user.setSex("man");
                 return  user.toString();
             }
-
         }
-
         return "参数不合法";
     }
 }

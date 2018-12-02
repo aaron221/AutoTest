@@ -20,9 +20,11 @@ import java.util.Objects;
 //使用了@RestController注解之后，其本质相当于在该类的所有方法上都统一使用了@ResponseBody注解，
 //所以该类下的所有方法都会返回json数据格式，输出在页面上，而不会再返回视图
 @Api(value = "/",description = "这是我全部的get方法")//只有带注释的类@Api才会被Swagger扫描
+
 public class MyGetMethod {
 
     @RequestMapping(value = "/getCookies",method = RequestMethod.GET)
+    //@RequestMapping 是 Spring Web 应用程序中最常被用到的注解之一。这个注解会将 HTTP 请求映射到 MVC 和 REST 控制器的处理方法上。
     @ApiOperation(value = "通过这个方法可以获取到Cookies",httpMethod = "GET")
     //所述@ApiOperation用于将API资源内声明一个单个操作。操作被认为是路径和HTTP方法的唯一组合。只@ApiOperation扫描带有注释的方法并
     //添加API声明。注释将影响Swagger输出的两个部分，即每个路径创建一个的API对象，以及每个@ApiOperation创建一个操作对象的操作对象。
