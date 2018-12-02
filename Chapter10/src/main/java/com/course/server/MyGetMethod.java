@@ -11,12 +11,22 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 
-@RestController
-@Api(value = "/",description = "这是我全部的get方法")
+@RestController//在使用springmvc框架的时候，在处理json的时候需要用到spring框架特有的注解@ResponseBody或者
+//@RestController注解，这两个注解都会处理返回的数据格式，使用了该类型注解后返回的不再是视图，
+//不会进行转跳，而是返回json或xml数据格式，输出在页面上,@ResponseBody，一般是使用在单独的方法上的，
+//需要哪个方法返回json数据格式，就在哪个方法上使用，具有针对性。
+//@RestController，一般是使用在类上的，它表示的意思其实就是结合了@Controller和@ResponseBody两个注解，
+//如果哪个类下的所有方法需要返回json数据格式的，就在哪个类上使用该注解，具有统一性；需要注意的是，
+//使用了@RestController注解之后，其本质相当于在该类的所有方法上都统一使用了@ResponseBody注解，
+//所以该类下的所有方法都会返回json数据格式，输出在页面上，而不会再返回视图
+@Api(value = "/",description = "这是我全部的get方法")//只有带注释的类@Api才会被Swagger扫描
 public class MyGetMethod {
 
     @RequestMapping(value = "/getCookies",method = RequestMethod.GET)
     @ApiOperation(value = "通过这个方法可以获取到Cookies",httpMethod = "GET")
+    //所述@ApiOperation用于将API资源内声明一个单个操作。操作被认为是路径和HTTP方法的唯一组合。只@ApiOperation扫描带有注释的方法并
+    //添加API声明。注释将影响Swagger输出的两个部分，即每个路径创建一个的API对象，以及每个@ApiOperation创建一个操作对象的操作对象。
+    //请记住，在使用Servlet时，@Api会在设置路径时影响API对象
     public String getCookies(HttpServletResponse response){
         //HttpServerletRequest 装请求信息的类
         //HttpServerletResponse  装响应信息的类

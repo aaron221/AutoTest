@@ -10,8 +10,11 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@Configuration
-@EnableSwagger2
+@Configuration//声明当前类是一个配置类，相当于一个Spring的XML配置文件,让Spring来加载该类配置，与@Bean配合使用
+//首先，将所有标注@Configuration的Bean筛选出来；
+//其次，对每个配置类使用CGlib进行增强；
+//对方法调用进行代理，防止嵌套调用时出现多个不同实例，具体可查看ConfigurationClassEnhancer；
+@EnableSwagger2//注解是用来来启用Swagger2--用来生成接口文档
 public class SwaggerConfig {
 
     @Bean
